@@ -39,7 +39,7 @@ public class latihanBubbleSort {
          * - Dan hasil akhirnya adalah 1, 2, 3, 4, 6, 7, 9
          */
 
-        // Implementasi Bubble Sort dengan Java
+        // Implementasi Bubble Sort dengan Java Contoh 1
         int[] arr = { 7, 1, 3, 4, 9, 2, 6 }; // pertama mendeklarasikan array yang akan diurutkan
         int n = arr.length; // mendeklerasikan integer n yang berisi panjang array
         int temp = 0; // mendeklarasikan integer temp yang berisi 0 sebagai penampung sementara saat
@@ -67,5 +67,91 @@ public class latihanBubbleSort {
             System.out.print(arr[i] + " ");
         }
 
+        // Implementasi Bubble Sort dengan Java Contoh 2 dengan Descending
+        int[] arr2 = {23, 35, 14 ,7, 67, 89, 20};
+        int n2 = arr2.length;
+        int temp2 = 0;
+
+        System.out.println("Array Sebelum Bubble Sort Descending");
+        for (int i = 0; i < n2; i++) {
+            System.out.print(arr2[i] + " ");
+        }
+
+        for (int i = 0; i < n2; i++) {
+            for (int j = 1; j < (n2 - i); j++) {
+                if (arr2[j - 1] < arr2[j]) {
+                    // Swap elements
+                    temp2 = arr2[j - 1];
+                    arr2[j - 1] = arr2[j];
+                    arr2[j] = temp2;
+                }
+            }
+        }
+
+        System.out.println("\nArray Setelah Bubble Sort Descending");
+        for (int i = 0; i < n2; i++) {
+            System.out.print(arr2[i] + " ");
+        }
+
+        /*
+         * Penjelasan Alur Algoritma Bubble Sort menggunakan Descending:
+         * 
+         * data array awal = {23, 35, 14 ,7, 67, 89, 20}
+         * 
+         * Iterasi 1 :
+         * {**35, 23**, 14, 7, 67, 89, 20} -> 35 > 23 maka tukar
+         * {35, **23, 14**, 7, 67, 89, 20} -> 23 > 14 maka tetap
+         * {35, 23, **14, 7**, 67, 89, 20} -> 14 > 7 maka tetap
+         * {35, 23, 14, **67, 7**, 89, 20} -> 67 > 7 maka tukar
+         * {35, 23, 14, 67, **89, 7**, 20} -> 89 > 7 maka tukar
+         * {35, 23, 14, 67, 89, **20, 7**} -> 20 > 7 maka tukar
+         * 
+         * Iterasi 2 :
+         * {**35, 23**, 14, 67, 89, 20, 7} -> 35 > 23 maka tetap
+         * {35, **23, 14**, 67, 89, 20, 7} -> 23 > 14 maka tetap
+         * {35, 23, **67, 14**, 89, 20, 7} -> 67 > 14 maka tukar
+         * {35, 23, 67, **89, 14**, 20, 7} -> 89 > 14 maka tukar
+         * {35, 23, 67, 89, **20, 14**, 7} -> 20 > 14 maka tukar
+         * 
+         * Iterasi 3 :
+         * {**35, 23**, 67, 89, 20, 14, 7} -> 35 > 23 maka tetap
+         * {35, **67, 23**, 89, 20, 14, 7} -> 67 > 23 maka tukar
+         * {35, 67, **89, 23**, 20, 14, 7} -> 89 > 23 maka tukar
+         * 
+         * Iterasi 4 :
+         * {**67, 35**, 89, 23, 20, 14, 7} -> 67 > 35 maka tukar
+         * {67, **89, 35**, 23, 20, 14, 7} -> 89 > 35 maka tukar
+         * 
+         * Iterasi 5 :
+         * {**89, 67**, 35, 23, 20, 14, 7} -> 89 > 67 maka tukar
+         * 
+         * Hasil akhirnya adalah 89, 67, 35, 23, 20, 14, 7
+         */
+        
+
+
+        /*
+         * Jelaskan Tindakan yang dilakukan oleh Bubble Sort Jika Menemukan Elemen data yang sama Nilainya
+         *
+         * Jika Bubble Sort menemukan elemen data yang sama nilainya, Algoritma tetap akan membandingkan
+         * elemen tersebut, tetapi tidak akan menukar posisi elemen tersebut karena nilai sudah dianggap urut.
+         *
+         * Contoh Array {22, 33, 45, 17, 33}
+         * - Iterasi 1 :
+         * {**22, 33**, 45, 17, 33} -> 22 < 33 maka tetap
+         * {22, **33, 45**, 17, 33} -> 33 < 45 maka tetap
+         * {22, 33, **17, 45**, 33} -> 17 < 45 maka tukar
+         * {22, 33, 17, **33, 45**} -> 33 < 45 maka tukar
+         * 
+         * Iterasi 2 :
+         * {**22, 33**, 17, 33, 45} -> 22 < 33 maka tetap
+         * {22, **17, 33**, 33, 45} -> 17 < 33 maka tukar
+         * {22, 17, **33, 33**, 45} -> 33 = 33 maka tetap
+         * 
+         * Iterasi 3 :
+         * {**17, 22**, 33, 33, 45} -> 17 < 22 maka tukar
+         * 
+         * Hasil akhirnya adalah {17, 22, 33, 33, 45}
+         */
     }
 }

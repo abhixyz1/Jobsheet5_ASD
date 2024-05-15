@@ -3,7 +3,7 @@
  */
 public class latihan {
     public static void main(String[] args) {
-
+        
         /*
          * Materi Bubble Short
          * Bubble short adalah metode pengurutan dengan cara membandingkan elemen array
@@ -41,7 +41,7 @@ public class latihan {
         }
 
         for (int i = 0; i < n; i++) { // perulangan untuk mengurutkan array
-            for (int j = 1; j < (n - i); j++) { // perulangan untuk membandingkan elemen array
+            for (int j = 1; j < (n - i); j++) { // perulangan untuk membandingkan elemen array  
                 if (arr[j - 1] > arr[j]) { // jika elemen array sebelumnya lebih besar dari elemen array sekarang
                     // swap elements
                     temp = arr[j - 1]; // menyimpan nilai elemen array sebelumnya ke dalam variabel temp
@@ -295,6 +295,93 @@ public class latihan {
          * 
          * -iterasi kelima
          * proses serupa dilakukan untuk setiap iterasi 
+         */
+
+         //Latihan Insertion Short 2 //
+        int[] arr5 = { 14, 13, 19, 27, 43, 10, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25 };
+        int n5 = arr5.length;
+        
+        System.out.println("\nSebelum diurutkan: ");
+        for (int i = 0; i < n5; i++) {
+            System.out.print(arr5[i] + " ");
+        }
+
+        for (int i = 1; i < n5; i++) {
+            int key = arr5[i];
+            int j = i - 1;
+
+            while (j >= 0 && arr5[j] > key) {
+                arr5[j + 1] = arr5[j];
+                j = j - 1;
+            }
+            arr5[j + 1] = key;
+        }
+
+        System.out.println("\nSetelah diurutkan: ");
+        for (int i = 0; i < n5; i++) {
+            System.out.print(arr5[i] + " ");
+        }
+
+        /*
+         * penjelasan alur latihan insertion short 2
+         * 
+         * Iterasi dimulai dari indeks kedua (i = 1) hingga akhir array.
+         * Setiap iterasi, nilai pada indeks i dianggap sebagai "key" yang akan
+         * dimasukkan ke posisi yang sesuai dalam bagian yang sudah diurutkan
+         * sebelumnya.
+         * Variabel j digunakan untuk mengiterasi melalui elemen yang sudah diurutkan sebelumnya.
+         * Selama nilai pada indeks j lebih besar dari nilai "key" dan
+         * j masih lebih besar atau sama dengan 0, nilai pada indeks j akan digeser ke kanan satu
+         * posisi (arr[j+1] = arr[j]) untuk memberikan tempat bagi "key".
+         * Setelah keluar dari perulangan while, "key" akan ditempatkan pada posisi yang
+         * sesuai di dalam bagian yang sudah diurutkan (arr[j+1] = key).
+         * pertama array yang akan diurutkan adalah {14, 13, 19, 27, 43, 10, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25}
+         * lalu pengurutannya dimulai dari 14, 13, 19, 27, 43, 10, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi pertama
+         * key pertama adalah 13, nilai pada indeks ke-1
+         * lalu bandingkan key dengan nilai pada indeks ke-0
+         * 14 > 13, maka 14, 14, 19, 27, 43, 10, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi kedua
+         * key kedua adalah 19, nilai pada indeks ke-2
+         * lalu bandingkan key dengan nilai pada indeks ke-1
+         * 14 < 19, maka 13, 14, 19, 27, 43, 10, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi ketiga
+         * key ketiga adalah 27, nilai pada indeks ke-3
+         * lalu bandingkan key dengan nilai pada indeks ke-2
+         * 19 < 27, maka 13, 14, 19, 27, 43, 10, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi keempat
+         * key keempat adalah 43, nilai pada indeks ke-4
+         * lalu bandingkan key dengan nilai pada indeks ke-3
+         * 27 < 43, maka 13, 14, 19, 27, 43, 10, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi kelima
+         * key kelima adalah 10, nilai pada indeks ke-5
+         * lalu bandingkan key dengan nilai pada indeks ke-4
+         * 43 > 10, maka 13, 14, 19, 27, 10, 43, 33, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi keenam
+         * key keenam adalah 33, nilai pada indeks ke-6
+         * lalu bandingkan key dengan nilai pada indeks ke-5
+         * 43 > 33, maka 13, 14, 19, 27, 10, 33, 43, 17, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi ketujuh
+         * key ketujuh adalah 17, nilai pada indeks ke-7
+         * lalu bandingkan key dengan nilai pada indeks ke-6
+         * 43 > 17, maka 13, 14, 19, 27, 10, 17, 33, 43, 42, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi kedelapan
+         * key kedelapan adalah 42, nilai pada indeks ke-8
+         * lalu bandingkan key dengan nilai pada indeks ke-7
+         * 43 > 42, maka 13, 14, 19, 27, 10, 17, 33, 42, 43, 15, 87, 23, 37, 11, 12, 16, 18, 21, 24, 25
+         * 
+         * -iterasi kesembilan
+         * key kesembilan adalah 15, nilai pada indeks ke-9
+         * 
+         *  dan seterusnya sampai terahkir yaitu 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 24, 25, 27, 33, 37, 42, 43, 87
          */
     }
 }
